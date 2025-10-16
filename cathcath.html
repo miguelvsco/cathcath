@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hai Catherineeecathcath</title>
+<style>
+  :root {
+    --pink-soft: #ffd9e8;
+    --pink-pastel: #ffeef5;
+    --text: #6b405d;
+  }
+  * { box-sizing: border-box; font-family: "Poppins", sans-serif; }
+  html, body {
+    margin: 0; height: 100%;
+    background: var(--pink-pastel);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text);
+    overflow: hidden;
+  }
+  .scene {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%; height: 100%;
+    padding: 20px;
+  }
+  .active { display: flex; animation: fadeIn 1s ease forwards; }
+  @keyframes fadeIn { from {opacity:0; transform:scale(0.97);} to {opacity:1; transform:scale(1);} }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  button {
+    background: white;
+    color: var(--text);
+    border: 2px solid var(--text);
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  button:hover {
+    background: var(--text);
+    color: white;
+  }
+
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 600px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    animation: slideUp 1.2s ease forwards;
+  }
+  @keyframes slideUp {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
+  }
+  .line {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+  .sub {
+    font-size: 0.95rem;
+    color: #92566d;
+    margin-top: 10px;
+  }
+
+  /* Closing animation */
+  .animals {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    margin-top: 20px;
+  }
+  .bunny, .dog {
+    position: absolute;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #ffb3c6;
+  }
+  .bunny {
+    left: 30px; bottom: 0;
+    animation: hop 1.8s ease-in-out infinite;
+  }
+  .dog {
+    right: 30px; bottom: 0;
+    animation: wag 1.8s ease-in-out infinite;
+  }
+  @keyframes hop {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+  }
+  @keyframes wag {
+    0%,100% { transform: rotate(0deg); }
+    50% { transform: rotate(8deg); }
+  }
+  .ear {
+    position: absolute;
+    width: 20px; height: 40px;
+    background: white;
+    border: 3px solid #ffb3c6;
+    border-radius: 10px;
+    top: -35px;
+  }
+  .ear.left { left: 10px; transform: rotate(-10deg); }
+  .ear.right { right: 10px; transform: rotate(10deg); }
+
+  .eye {
+    position: absolute;
+    width: 10px; height: 10px;
+    background: #6b405d;
+    border-radius: 50%;
+    top: 30px;
+  }
+  .eye.left { left: 20px; }
+  .eye.right { right: 20px; }
+
+  .nose {
+    position: absolute;
+    top: 45px; left: 50%;
+    transform: translateX(-50%);
+    width: 10px; height: 8px;
+    background: #ff7aa2;
+    border-radius: 50%;
+  }
+
+  .heart {
+    position: absolute;
+    width: 20px; height: 20px;
+    background: #ff99b8;
+    transform: rotate(45deg);
+    animation: float 2s ease-in-out infinite;
+  }
+  .heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px; height: 20px;
+    background: #ff99b8;
+    border-radius: 50%;
+  }
+  .heart::before { top: -10px; left: 0; }
+  .heart::after { left: -10px; top: 0; }
+  @keyframes float {
+    0%,100% { transform: translateY(0) rotate(45deg); opacity:1; }
+    50% { transform: translateY(-20px) rotate(45deg); opacity:0.8; }
+  }
+
+  .thanks {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+  <!-- Scene 1 -->
+  <div class="scene active" id="scene1">
+    <h1>HAIIIIII CATHERINEEEE</h1>
+    <button onclick="nextScene(2)">Next ➜</button>
+  </div>
+
+  <!-- Scene 2 -->
+  <div class="scene" id="scene2">
+    <div class="card">
+      <div class="line">Selamat bekerja yaaa.</div>
+      <div class="line">Semoga hari ini lancar dan produktif.</div>
+      <div class="line">Kamu keren dan semangat selalu. Jangan lupa tarik napas. Istirahat sesekali. Minum air juga.</div>
+      <div class="sub">Semoga hari ini selalu diberikan energi buanyakkk. Semangat, ya bobob wleeeee hahaa, ak lg belajar coding soalnya relate for my work, jangan lupa bersyukur ya hari ini dan semoga nanti tugas kamu semua perlahan selesai 💪🌸</div>
+    </div>
+    <button style="margin-top:25px;" onclick="nextScene(3)">Next ➜</button>
+  </div>
+
+  <!-- Scene 3 -->
+  <div class="scene" id="scene3">
+    <div class="animals">
+      <div class="bunny">
+        <div class="ear left"></div>
+        <div class="ear right"></div>
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="nose"></div>
+      </div>
+      <div class="dog">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="nose"></div>
+      </div>
+      <div class="heart" style="left:90px; top:-10px;"></div>
+      <div class="heart" style="left:60px; top:20px; animation-delay:0.8s;"></div>
+      <div class="heart" style="left:120px; top:10px; animation-delay:1.2s;"></div>
+    </div>
+    <div class="thanks">🐰🐶 They say: “Semangat terus ya, Catherine!” </div>
+  </div>
+
+  <script>
+    function nextScene(num) {
+      document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+      document.getElementById('scene'+num).classList.add('active');
+    }
+  </script>
+</body>
+</html>
+
